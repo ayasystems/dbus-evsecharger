@@ -35,8 +35,9 @@ Within the project there is a file `/data/dbus-evsecharger/config.ini` - just ch
 | ------------- | ------------- | ------------- |
 | DEFAULT  | AccessType | Fixed value 'OnPremise' |
 | DEFAULT  | SignOfLifeLog  | Time in minutes how often a status is added to the log-file `current.log` with log-level INFO |
-| DEFAULT  | Deviceinstance | Unique ID identifying the shelly 1pm in Venus OS |
-| ONPREMISE  | Host | IP or hostname of on-premise Shelly 3EM web-interface |
+| DEFAULT  | Deviceinstance | Unique ID identifying the EvCharger |
+| DEFAULT  | position | 0 OUT / 1 IN |
+| ONPREMISE  | Host | IP or hostname of on-premise OpenEVSE (note use user password if it is needed |
 
 
 ## Usefull links
