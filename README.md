@@ -1,5 +1,6 @@
 # dbus-open-evse
-Integrate Open_EVSE charger into Victron Energies Venus OS
+Integrate Open_EVSE charger into Victron Energies Venus OS. Original code could be found here -> https://github.com/JuWorkshop/dbus-evsecharger
+This modification allow use with new version of Openevse firmare (ESP32 4.1.x)
 
 ## Purpose
 This script supports reading EV charger values from openEVSE base charger. Writing values is supported for "Enable charging"and  "Charging current" 
