@@ -1,13 +1,8 @@
 # dbus-open-evse
-Integrate Open_EVSE charger into Victron Energies Venus OS. Original code could be found here -> https://github.com/JuWorkshop/dbus-evsecharger
-This modification allow use with new version of Openevse firmare (ESP32 4.1.x)
+Integrate Open_EVSE charger into Victron Energies Venus OS
 
 ## Purpose
 This script supports reading EV charger values from openEVSE base charger. Writing values is supported for "Enable charging"and  "Charging current" 
-
-Minimal firmware to use this driver should be 4.1.x 
-
-![image](https://user-images.githubusercontent.com/7864168/192815573-25d378bc-108c-481e-b4b8-eeb2356c2248.png)
 
 ### Pictures
 ![Remote Console - Overview](img/1-DeviceList.png) 
@@ -24,7 +19,7 @@ After that call the install.sh script.
 
 The following script should do everything for you:
 ```
-wget https://github.com/ayasystems/dbus-evsecharger/archive/refs/heads/main.zip
+wget https://github.com/JuWorkshop/dbus-evsecharger/archive/refs/heads/main.zip
 unzip main.zip "dbus-evsecharger-main/*" -d /data
 mv /data/dbus-evsecharger-main /data/dbus-evsecharger
 chmod a+x /data/dbus-evsecharger/install.sh
@@ -49,4 +44,3 @@ Many thanks. @vikt0rm, @fabian-lauer and @trixing project:
 - https://github.com/trixing/venus.dbus-twc3
 - https://github.com/fabian-lauer/dbus-shelly-3em-smartmeter
 - https://github.com/vikt0rm/dbus-goecharger
-- https://github.com/JuWorkshop/dbus-evsecharger

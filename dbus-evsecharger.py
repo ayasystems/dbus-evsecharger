@@ -364,7 +364,7 @@ class DbusEvseChargerService:
             print("entra")
             return self._setMaxCurrentSoft(value)
         elif path == '/StartStop':
-        #si el modo eco esta activo para desactivar carga hay que mandar una activación del override
+        #si el modo eco está activo para desactivar carga hay que mandar una activación del override
         #_setEvseEnableOverride
             if(self._status == 6 and self._override ==1):
                 if(self._setEvseDisableOverride()==True):
