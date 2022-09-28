@@ -19,7 +19,7 @@ After that call the install.sh script.
 
 The following script should do everything for you:
 ```
-wget https://github.com/JuWorkshop/dbus-evsecharger/archive/refs/heads/main.zip
+wget https://github.com/ayasystems/dbus-evsecharger/archive/refs/heads/main.zip
 unzip main.zip "dbus-evsecharger-main/*" -d /data
 mv /data/dbus-evsecharger-main /data/dbus-evsecharger
 chmod a+x /data/dbus-evsecharger/install.sh
