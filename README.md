@@ -5,6 +5,9 @@ This modification allow use with new version of Openevse firmare (ESP32 4.1.x)
 ## Purpose
 This script supports reading EV charger values from openEVSE base charger. Writing values is supported for "Enable charging"and  "Charging current" 
 
+Minimal firmware to use this driver should be 4.1.x 
+![image](https://user-images.githubusercontent.com/7864168/192815573-25d378bc-108c-481e-b4b8-eeb2356c2248.png)
+
 ### Pictures
 ![Remote Console - Overview](img/1-DeviceList.png) 
 ![](img/2-EVSE.png)
