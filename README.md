@@ -19,7 +19,7 @@ After that call the install.sh script.
 
 The following script should do everything for you:
 ```
-wget https://github.com/JuWorkshop/dbus-evsecharger/archive/refs/heads/main.zip
+wget https://github.com/ayasystems/dbus-evsecharger/archive/refs/heads/main.zip
 unzip main.zip "dbus-evsecharger-main/*" -d /data
 mv /data/dbus-evsecharger-main /data/dbus-evsecharger
 chmod a+x /data/dbus-evsecharger/install.sh
@@ -44,3 +44,4 @@ Many thanks. @vikt0rm, @fabian-lauer and @trixing project:
 - https://github.com/trixing/venus.dbus-twc3
 - https://github.com/fabian-lauer/dbus-shelly-3em-smartmeter
 - https://github.com/vikt0rm/dbus-goecharger
+- https://github.com/JuWorkshop/dbus-evsecharger
