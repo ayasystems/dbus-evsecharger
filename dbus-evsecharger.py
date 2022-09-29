@@ -41,6 +41,7 @@ class DbusEvseChargerService:
 
         # get data from go-eCharger
         data = self._getEvseChargerData()
+        configData =  self._getEvseConfigData()
 
         # Create the management objects, as specified in the ccgx dbus-api document
         self._dbusservice.add_path('/Mgmt/ProcessName', __file__)
@@ -50,12 +51,12 @@ class DbusEvseChargerService:
 
         # Create the mandatory objects
         self._dbusservice.add_path('/DeviceInstance', deviceinstance)
-        self._dbusservice.add_path('/ProductId', 0xFFFF)  #
+        self._dbusservice.add_path('/ProductId', 0x1234)  #
         self._dbusservice.add_path('/ProductName', productname)
         self._dbusservice.add_path('/CustomName', productname)
-        self._dbusservice.add_path('/FirmwareVersion', int(data['divert_update']))
-        self._dbusservice.add_path('/HardwareVersion', 2)
-        self._dbusservice.add_path('/Serial', data['comm_success'])
+        self._dbusservice.add_path('/FirmwareVersion', configData['version'])
+        self._dbusservice.add_path('/HardwareVersion', configData['firmware'])
+        self._dbusservice.add_path('/Serial', configData['wifi_serial'])
         self._dbusservice.add_path('/Position', self._Position, writeable=True, onchangecallback=self._handlechangedvalue) # normaly only needed for pvinverter
         self._dbusservice.add_path('/Connected', 1)
         self._dbusservice.add_path('/UpdateIndex', 0)
@@ -272,7 +273,21 @@ class DbusEvseChargerService:
             raise ValueError("Converting response to JSON failed")
 
         return json_data
+    def _getEvseConfigData(self):
+        URL = self._getEvseChargerUrl()+"config"
+        request_data = requests.get(url=URL)
 
+        # check for response
+        if not request_data:
+            raise ConnectionError("No response from Evse-Charger - %s" % (URL))
+
+        json_data = request_data.json()
+
+        # check for Json
+        if not json_data:
+            raise ValueError("Converting response to JSON failed")
+
+        return json_data
     def _signOfLife(self):
         logging.info("--- Start: sign of life ---")
         logging.info("Last _update() call: %s" % (self._lastUpdate))
@@ -364,7 +379,7 @@ class DbusEvseChargerService:
             print("entra")
             return self._setMaxCurrentSoft(value)
         elif path == '/StartStop':
-        #si el modo eco está activo para desactivar carga hay que mandar una activación del override
+        #si el modo eco esta activo para desactivar carga hay que mandar una activación del override
         #_setEvseEnableOverride
             if(self._status == 6 and self._override ==1):
                 if(self._setEvseDisableOverride()==True):
