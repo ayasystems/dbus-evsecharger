@@ -4,6 +4,7 @@ El código original está disponible aquí -> https://github.com/JuWorkshop/dbus
 Esta modificación del original permite utilizar las nuevas versiones de firmware (ESP32 4.X)
 
 La minima versión de firmware del ESP32 del openevse es 4.1.x
+
 ![image](https://user-images.githubusercontent.com/7864168/192815573-25d378bc-108c-481e-b4b8-eeb2356c2248.png)
 
 ## Purpose
