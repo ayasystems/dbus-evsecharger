@@ -82,7 +82,7 @@ class DbusEvseChargerService:
         gobject.timeout_add(2000, self._update)  # pause 2sec before the next request
 
         # add _signOfLife 'timer' to get feedback in log every 5minutes
-        gobject.timeout_add(self._getSignOfLifeInterval() * 60 * 1000, self._signOfLife)
+        #gobject.timeout_add(self._getSignOfLifeInterval() * 60 * 1000, self._signOfLife)
 
     def _setConfig(self):
         return True
