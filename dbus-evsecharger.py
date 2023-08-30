@@ -86,16 +86,11 @@ class DbusEvseChargerService:
 
     def _setConfig(self):
         return True
-        print("entra")
         config = configparser.ConfigParser()
         config.read("%s/config.ini" % (os.path.dirname(os.path.realpath(__file__))))
-        print("pasa")
         config.set('DEFAULT','position', self._Position)
-        print("pasa2")
-        print(self._Position)
         with open("%s/config.ini" % (os.path.dirname(os.path.realpath(__file__))), 'w') as configfile:    # save
             config.write(configfile)
-        print("termina")
         return True
     def _getConfig(self):
         config = configparser.ConfigParser()
@@ -367,7 +362,7 @@ class DbusEvseChargerService:
             # update lastupdate vars
             self._lastUpdate = time.time()
         except Exception as e:
-            logging.critical('Error at %s', '_update', exc_info=e)
+            #logging.critical('Error at %s', '_update', exc_info=e)
 
         # return true, otherwise add_timeout will be removed from GObject - see docs http://library.isr.ist.utl.pt/docs/pygtk2reference/gobject-functions.html#function-gobject--timeout-add
         return True
@@ -460,7 +455,7 @@ def main():
         mainloop = gobject.MainLoop()
         mainloop.run()
     except Exception as e:
-        logging.critical('Error at %s', 'main', exc_info=e)
+        #logging.critical('Error at %s', 'main', exc_info=e)
 
 
 if __name__ == "__main__":
